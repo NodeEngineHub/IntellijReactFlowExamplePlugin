@@ -83,3 +83,9 @@ Settings page:
 ## Contributions
 
 Go for it
+
+
+# Image
+Here's an image of what the control flow graph looks like  
+<img width="351" height="660" alt="ControlFlowExample" src="https://github.com/user-attachments/assets/0384697b-6f92-4b63-acb9-c2a06fdc3f85" />
+
