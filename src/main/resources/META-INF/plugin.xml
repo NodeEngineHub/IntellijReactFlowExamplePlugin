@@ -1,0 +1,65 @@
+<!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
+<idea-plugin>
+    <!-- Unique identifier of the plugin. It should be FQN. It cannot be changed between the plugin versions. -->
+    <id>ca.nodeengine.intellijplugin.example.reactflow</id>
+
+    <!-- Public plugin name should be written in Title Case.
+         Guidelines: https://plugins.jetbrains.com/docs/marketplace/best-practices-for-listing.html#plugin-name -->
+    <name>IntellijReactFlowExamplePlugin</name>
+
+    <!-- A displayed Vendor name or Organization ID displayed on the Plugins Page. -->
+    <vendor url="https://nodeengine.ca">NodeEngine</vendor>
+
+    <!-- Description of the plugin displayed on the Plugin Page and IDE Plugin Manager.
+         Guidelines: https://plugins.jetbrains.com/docs/marketplace/best-practices-for-listing.html#plugin-description -->
+    <description><![CDATA[
+        This plugin is an example plugin to demonstrate Intellij React Flow.
+    ]]></description>
+
+    <!-- Product and plugin compatibility requirements.
+         Read more: https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.java</depends>
+
+    <!-- Extension points defined by the plugin.
+         Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
+    <extensions defaultExtensionNs="com.intellij">
+        <toolWindow id="ExampleReactFlowGraph"
+                    anchor="right"
+                    factoryClass="ca.nodeengine.intellijplugin.example.reactflow.ui.ExampleToolWindowFactory"
+                    canCloseContents="false"/>
+        <!-- Settings page registration -->
+        <applicationConfigurable
+                id="ca.nodeengine.intellijplugin.example.reactflow.settings"
+                displayName="ExampleReactFlowPlugin"
+                instance="ca.nodeengine.intellijplugin.example.reactflow.settings.ExampleSettingsConfigurable"/>
+    </extensions>
+
+    <!-- Actions: developer entry point to show a sample node graph -->
+    <actions>
+        <action id="ca.nodeengine.intellijplugin.example.reactflow.actions.ShowSampleNodeGraphAction"
+                class="ca.nodeengine.intellijplugin.example.reactflow.actions.ShowSampleNodeGraphAction"
+                text="Show Sample Node Graph"
+                description="Open the Node Graph tool window and populate it with sample nodes">
+            <add-to-group group-id="ToolsMenu" anchor="last"/>
+        </action>
+        <action id="ca.nodeengine.intellijplugin.example.reactflow.actions.ShowGradleModulesGraphAction"
+                class="ca.nodeengine.intellijplugin.example.reactflow.actions.ShowGradleModulesGraphAction"
+                text="Show Gradle Modules Graph"
+                description="Open the Node Graph tool window and display modules with their dependencies">
+            <add-to-group group-id="ToolsMenu" anchor="last"/>
+        </action>
+        <action id="ca.nodeengine.intellijplugin.example.reactflow.actions.ShowMethodDataflowGraphAction"
+                class="ca.nodeengine.intellijplugin.example.reactflow.actions.ShowMethodDataflowGraphAction"
+                text="Show Method Dataflow Graph"
+                description="Build a dataflow graph for the Java method at the caret and show it in Node Graph">
+            <add-to-group group-id="ToolsMenu" anchor="last"/>
+        </action>
+        <action id="ca.nodeengine.intellijplugin.example.reactflow.actions.ShowMethodControlFlowGraphAction"
+                class="ca.nodeengine.intellijplugin.example.reactflow.actions.ShowMethodControlFlowGraphAction"
+                text="Show Method Control Flow Graph"
+                description="Build a control-flow graph for the Java method at the caret and show it in Node Graph">
+            <add-to-group group-id="ToolsMenu" anchor="last"/>
+        </action>
+    </actions>
+</idea-plugin>

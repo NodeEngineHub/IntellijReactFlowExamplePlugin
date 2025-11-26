@@ -1,0 +1,1 @@
+rootProject.name = "intellij-react-flow-example-plugin"
